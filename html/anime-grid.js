@@ -32,22 +32,22 @@ const typeTexts = `性癖启蒙
 
 见一次就骂一次
 睡得很香
-坐牢十年才看完
+坐牢十年才玩完
 为它花过很多钱
 
 安利失败一百次
-天天听说，从未看过
+天天听说，从未玩过
 大众吹的就该黑
 大众黑的就该吹
 
-看完创作欲爆棚
+玩完创作欲爆棚
 被骗眼泪一公升
 靠下半身追完了`;
 
 const types = typeTexts.trim().split(/\n+/g);
 
 
-const bangumiLocalKey = 'margiconch-animes-grid';
+const bangumiLocalKey = 'margiconch-games-grid';
 
 
 let bangumis = [];
@@ -111,7 +111,7 @@ ctx.textBaseline = 'middle';
 ctx.lineCap  = 'round';
 ctx.lineJoin = 'round';
 ctx.fillText(
-    '@卜卜口 · lab.magiconch.com/anime-grid · 神奇海螺试验场 · 动画信息来自番组计划 · 禁止商业、盈利用途',
+    'thanks for @卜卜口 · game-grid.vercel.app · 游戏信息来自番组计划 · 禁止商业、盈利用途',
     19 * scale,
     (height - 10) * scale
 );
@@ -131,7 +131,7 @@ ctx.save();
 
 
 ctx.font = 'bold 24px sans-serif';
-ctx.fillText('动画生涯个人喜好表',contentWidth / 2, -24 );
+ctx.fillText('游戏生涯个人喜好表',contentWidth / 2, -24 );
 
 
 
@@ -183,13 +183,13 @@ const APIURL = `https://lab.magiconch.com/api/bangumi/`;
 const ImageURL = `https://nagisa.magiconch.com/api/bangumi/`;
 
 
-const getCoverURLById = id => `${ImageURL}anime/${id}/cover.jpg`;
+const getCoverURLById = id => `${ImageURL}game/${id}/cover.jpg`;
 
 let currentBangumiIndex = null;
 const searchBoxEl = document.querySelector('.search-bangumis-box');
 const formEl = document.querySelector('form');
 const searchInputEl = formEl[0];
-const animeListEl = document.querySelector('.anime-list');
+const gameListEl = document.querySelector('.game-list');
 
 const openSearchBox = (index)=>{
     currentBangumiIndex = index;
@@ -226,7 +226,7 @@ const setCurrentBangumi =  (value)=>{
     closeSearchBox();
 }
 
-animeListEl.onclick = e=>{
+gameListEl.onclick = e=>{
     const id = +e.target.getAttribute('data-id');
     if(currentBangumiIndex === null) return;
     setCurrentBangumi(id);
@@ -234,14 +234,14 @@ animeListEl.onclick = e=>{
 
 formEl.onsubmit = async e=>{
     if(e) e.preventDefault();
-    let url = `${APIURL}animes`;
+    let url = `${APIURL}games`;
 
     const keyword = searchInputEl.value.trim();
     if(keyword) url = url + `?keyword=${encodeURIComponent(keyword)}`;
 
-    const animes = await get(url);
-    animeListEl.innerHTML = animes.map(anime=>{
-        return `<div class="anime-item" data-id="${anime.id}"><img src="${getCoverURLById(anime.id)}" crossOrigin="Anonymous"><h3>${anime.title}</h3></div>`;
+    const games = await get(url);
+    gameListEl.innerHTML = games.map(game=>{
+        return `<div class="game-item" data-id="${game.id}"><img src="${getCoverURLById(game.id)}" crossOrigin="Anonymous"><h3>${game.title}</h3></div>`;
     }).join('');
 }
 
@@ -315,7 +315,7 @@ const drawBangumis = ()=>{
 
 
 const downloadImage = ()=>{
-    const fileName = '[神奇海螺][动画生涯个人喜好表].jpg';
+    const fileName = '[游戏生涯个人喜好表].jpg';
     const mime = 'image/jpeg';
     const imgURL = canvas.toDataURL(mime,0.8);
     const linkEl = document.createElement('a');
