@@ -170,6 +170,7 @@ for(let y = 0;y < row;y++){
         const top = y * rowHeight;
         const left = x * colWidth;
         const type = types[y * col + x];
+        ctx.font = (type.length > 7 ? '13px Arial' : '16px Arial');
         ctx.fillText(
             type,
             left + colWidth / 2,
