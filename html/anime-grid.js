@@ -111,7 +111,7 @@ ctx.textBaseline = 'middle';
 ctx.lineCap  = 'round';
 ctx.lineJoin = 'round';
 ctx.fillText(
-    'thanks for @卜卜口 · game-grid.vercel.app · 游戏信息来自番组计划 · 禁止商业、盈利用途',
+    'thanks for @卜卜口 · anime-grid-game.vercel.app · 游戏信息来自番组计划 · 禁止商业、盈利用途',
     19 * scale,
     (height - 10) * scale
 );
