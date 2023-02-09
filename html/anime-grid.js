@@ -111,7 +111,7 @@ ctx.textBaseline = 'middle';
 ctx.lineCap  = 'round';
 ctx.lineJoin = 'round';
 ctx.fillText(
-    '@卜卜口 · lab.magiconch.com/anime-grid · 神奇海螺试验场 · 动画信息来自番组计划 · 禁止商业、盈利用途',
+    '@苍旻白轮 · Thanks for @卜卜口 & @Ukato_ · anime-grid.shatranj.space · 动画信息来自番组计划 · 禁止商业、盈利用途',
     19 * scale,
     (height - 10) * scale
 );
@@ -315,7 +315,7 @@ const drawBangumis = ()=>{
 
 
 const downloadImage = ()=>{
-    const fileName = '[神奇海螺][动画生涯个人喜好表].jpg';
+    const fileName = '[动画生涯个人喜好表].jpg';
     const mime = 'image/jpeg';
     const imgURL = canvas.toDataURL(mime,0.8);
     const linkEl = document.createElement('a');
